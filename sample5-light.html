@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>sample1</title>
+  <title>sample5</title>
 
   <!-- three.jsを読み込む(ローカル) -->
   <!-- <script src="./three.js"></script> -->
@@ -28,26 +28,35 @@
     // カメラを作成
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
   
-    // 箱を作成
-    var geometry = new THREE.BoxGeometry(1, 1, 1);
-    var material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
-    var box = new THREE.Mesh(geometry, material);
-    box.position.z = -5;
-    scene.add(box);
+//球
+var sphereGeometry = new THREE.SphereGeometry( 0.5, 32, 32 ); 
+//半径、垂直方向の分割数、水平方向の分割数
+var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0x0000ff,wireframe: true} );
+var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+sphere.position.set( 0, 0, -5 );
+scene.add( sphere );
+
+
+
   
-    // 平行光源
-    var directionalLight = new THREE.DirectionalLight(0xffffff);
-    directionalLight.position.set(1, 1, 1);
+    // 平行光源1
+    var directionalLight1 = new THREE.DirectionalLight(0xffffff);
+    directionalLight1.position.set(1, 1, 1);
     // シーンに追加
-    scene.add(directionalLight);
+    scene.add(directionalLight1);
+    // 平行光源2
+        var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+    directionalLight2.position.set(-1, 1, 1);
+    // シーンに追加
+    scene.add(directionalLight2);
   
     // 初回実行
     var update = function() {
       requestAnimationFrame(update);
   
       // 箱を回転させる
-      box.rotation.x += 0.01;
-      box.rotation.y += 0.01;
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
   
       renderer.render(scene, camera);
     };
