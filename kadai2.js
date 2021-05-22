@@ -15,7 +15,7 @@ var init = function() {
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
   
     // 箱を作成
-    var geometry = new THREE.OctahedronGeometr(1, 1, 1);
+    var geometry = new THREE.OctahedronGeometr(200);
     var material = new THREE.MeshLambertMaterial({ color: 0x0000ff });
     var octahedron = new THREE.Mesh(geometry, material);
     octahedron.position.z = -5;
