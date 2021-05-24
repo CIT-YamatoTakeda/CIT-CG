@@ -62,3 +62,4 @@ var init = function() {
     update();
   }
   window.addEventListener('DOMContentLoaded', init);
+  
