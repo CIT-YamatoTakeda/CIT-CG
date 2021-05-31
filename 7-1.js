@@ -16,7 +16,7 @@ var init = function() {
 
 // テクスチャー読み込み
 var textureLoader = new THREE.TextureLoader();
-  var texture = textureLoader.load("img/bricks.jpg");
+  var texture = textureLoader.load("img/Bricks.jpg");
   var mat = new THREE.MeshPhongMaterial();
   mat.map = texture;
 
