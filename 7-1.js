@@ -15,8 +15,8 @@ var init = function() {
   var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
 
 // テクスチャー読み込み
-var textureLoader = new THREE.TextureLoader();  
-  var texture = textureLoader.load("img/Bricks.jpg");
+var textureLoader = new THREE.TextureLoader();
+  var texture = textureLoader.load("img/bricks.jpg");
   var mat = new THREE.MeshPhongMaterial();
   mat.map = texture;
 
