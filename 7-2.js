@@ -23,7 +23,7 @@ var init = function() {
   // バンプマップ読み込み
   var bump = texture;
   mat.bumpMap = bump;
-  mat.bumpscale = 0.3;
+  mat.bumpscale = 0.1;
 
   // 箱を作成
   var geometry = new THREE.BoxGeometry(1, 1, 1);
