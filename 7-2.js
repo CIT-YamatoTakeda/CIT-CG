@@ -36,7 +36,7 @@ var init = function() {
   box.position.z = -5;
   scene.add(box);
 
- // 平行光源1
+  // 平行光源1
   var directionalLight1 = new THREE.DirectionalLight(0xffffff);
   directionalLight1.position.set(1, 1, 1);
   // シーンに追加
@@ -68,4 +68,4 @@ var init = function() {
     requestAnimationFrame(tick);
   }
 }
-//window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('load', init);
