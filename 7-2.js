@@ -1,21 +1,21 @@
 var init = function() {
 
-    var width = 800,
-        height = 600;
+  var width = 800,
+      height = 600;
   
-    // レンダラーを作成
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(width, height);
-    document.body.appendChild(renderer.domElement);
+  // レンダラーを作成
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize(width, height);
+  document.body.appendChild(renderer.domElement);
   
-    // シーンを作成
-    var scene = new THREE.Scene();
+  // シーンを作成
+  var scene = new THREE.Scene();
   
-    // カメラを作成
+  // カメラを作成
   var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
 
   // カメラコントローラーを作成
-  const controls = new THREE.OrbitControls(camera,document.body);
+  const controls = new THREE.OrbitControls(camera, document.body);
 
   // テクスチャー読み込み
   var textureLoader = new THREE.TextureLoader();  
@@ -37,15 +37,15 @@ var init = function() {
   scene.add(box);
 
  // 平行光源1
-    var directionalLight1 = new THREE.DirectionalLight(0xffffff);
-    directionalLight1.position.set(1, 1, 1);
-    // シーンに追加
-    scene.add(directionalLight1);
-    // 平行光源2
-    var directionalLight2 = new THREE.DirectionalLight(0xffffff);
-    directionalLight2.position.set(-1, 1, 1);
-    // シーンに追加
-    scene.add(directionalLight2);
+  var directionalLight1 = new THREE.DirectionalLight(0xffffff);
+  directionalLight1.position.set(1, 1, 1);
+  // シーンに追加
+  scene.add(directionalLight1);
+  // 平行光源2
+  var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+  directionalLight2.position.set(-1, 1, 1);
+  // シーンに追加
+  scene.add(directionalLight2);
 
   // 初回実行
   /*var update = function() {
@@ -68,4 +68,4 @@ var init = function() {
     requestAnimationFrame(tick);
   }
 }
-  window.addEventListener('DOMContentLoaded', init);
+//window.addEventListener('DOMContentLoaded', init);
