@@ -17,8 +17,8 @@ var init = function() {
   // カメラコントローラーを作成
   const controls = new THREE.OrbitControls(camera,document.body);
 
-   // テクスチャー読み込み
-   var textureLoader = new THREE.TextureLoader();  
+  // テクスチャー読み込み
+  var textureLoader = new THREE.TextureLoader();  
   var texture = textureLoader.load("img/Bricks.jpg");
   var mat = new THREE.MeshPhongMaterial();
   mat.map = texture;
@@ -56,6 +56,9 @@ var init = function() {
     box.rotation.y += 0.01;
 
     renderer.render(scene, camera);
+
+    // カメラコントローラーを更新
+    controls.update();
   };
   update();
 }
