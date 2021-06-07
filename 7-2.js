@@ -42,13 +42,13 @@ var init = function() {
     // シーンに追加
     scene.add(directionalLight1);
     // 平行光源2
-        var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+    var directionalLight2 = new THREE.DirectionalLight(0xffffff);
     directionalLight2.position.set(-1, 1, 1);
     // シーンに追加
     scene.add(directionalLight2);
 
   // 初回実行
-  var update = function() {
+  /*var update = function() {
     requestAnimationFrame(update);
 
     // 箱を回転させる
@@ -57,9 +57,15 @@ var init = function() {
 
     renderer.render(scene, camera);
 
-    // カメラコントローラーを更新
-    controls.update();
   };
-  update();
+  update();*/
+  tick();
+
+  // 毎フレーム時に実行されるループイベントです
+  function tick() {
+    // レンダリング
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  }
 }
   window.addEventListener('DOMContentLoaded', init);
