@@ -1,3 +1,5 @@
+window.addEventListener('load', init);
+
 var init = function() {
 
   var width = 800,
@@ -19,7 +21,7 @@ var init = function() {
 
   // テクスチャー読み込み
   var textureLoader = new THREE.TextureLoader();  
-  var texture = textureLoader.load("img/Bricks.jpg");
+  var texture = textureLoader.load("../img/Bricks.jpg");
   var mat = new THREE.MeshPhongMaterial();
   mat.map = texture;
   
@@ -68,4 +70,3 @@ var init = function() {
     requestAnimationFrame(tick);
   }
 }
-window.addEventListener('load', init);
