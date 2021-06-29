@@ -21,7 +21,6 @@ function init() {
     const camera = new THREE.PerspectiveCamera(45, width / height);
     // カメラの初期座標を設定
     camera.position.set(300, 130, 0);
-
     // カメラコントローラーを作成
     const controls = new THREE.OrbitControls(camera,document.body);
 
@@ -35,7 +34,6 @@ function init() {
     directionalLight2.position.set(-150, 150, 150);
     // シーンに追加
     scene.add(directionalLight2);
-
     // 平行光源3
     var directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.3);
     directionalLight3.position.set(-150, 150, -150);
@@ -53,6 +51,8 @@ function init() {
     var texture4 = textureLoader.load("img/grass.jpg");
     // テクスチャ5読み込み
     var texture5 = textureLoader.load("img/brick2.jpg");
+    // テクスチャ6読み込み
+    var texture6 = textureLoader.load("img/door.png");
 
     // 地面を作成
     var geometry1 = new THREE.PlaneGeometry(100, 100);
@@ -89,7 +89,7 @@ function init() {
     cylinder4.position.set(-65, 25, -65);
     scene.add(cylinder4);
 
-    var geometry7 = new THREE.CylinderGeometry(15, 20, 80, 50);
+    var geometry7 = new THREE.CylinderGeometry(18, 20, 80, 50);
     var material6 = new THREE.MeshPhongMaterial({
         map: texture1, bumpMap: texture1, bumpScale: 0.5
     });
@@ -103,7 +103,7 @@ function init() {
         map: texture2, bumpMap: texture2, bumpScale: 0.3
     });
     var cone = new THREE.Mesh(geometry3, material3);
-    cone.position.y = 90;
+    cone.position.y = 92;
     scene.add(cone);
 
     // 道の作成
@@ -192,6 +192,30 @@ function init() {
     castle12.rotation.y = Math.PI / 2;
     castle12.position.set(0, 36, -70);
     scene.add(castle12);
+
+    // ドアの作成
+    var geometry7 = new THREE.PlaneGeometry(14, 18);
+    var material6 = new THREE.MeshLambertMaterial({
+        map: texture6, alphaTest: 0.5
+    });
+    var door1 = new THREE.Mesh(geometry7, material6);
+    door1.rotation.y = Math.PI / 2;
+    door1.position.set(20, 7.2, 0);
+    scene.add(door1)
+
+    var door2 = new THREE.Mesh(geometry7, material6);
+    door2.rotation.y = Math.PI / -2;
+    door2.position.set(-20, 7.2, 0);
+    scene.add(door2);
+
+    var door3 = new THREE.Mesh(geometry7, material6)
+    door3.position.set(0, 7.2, 20);
+    scene.add(door3);
+
+    var door4 = new THREE.Mesh(geometry7, material6)
+    door4.rotation.y = Math.PI;
+    door4.position.set(0, 7.2, -20);
+    scene.add(door4);
 
     tick();
     // 毎フレーム時に実行されるループイベント
